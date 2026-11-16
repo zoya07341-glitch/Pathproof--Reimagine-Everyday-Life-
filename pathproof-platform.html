@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PATHPROOF – Everyday places that work for everyone</title>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Noto+Sans+Telugu:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F7FA;--sf:#fff;--ink:#10263A;--mu:#52667A;--bo:#0F2A43;--ln:#D3DDE6;--ok:#17724A;--okb:#DFF3E8;--wn:#8A5A00;--wnb:#FFF0CC;--bd:#B3261E;--bdb:#FBE3E1;--ac:#1556C8;--sg:#FFC928;--map:#EAF0F5;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1722;--sf:#12263A;--ink:#EAF1F7;--mu:#9FB3C6;--bo:#06101A;--ln:#2A4259;--ok:#5BD69A;--okb:#12382A;--wn:#FFC928;--wnb:#3B2E08;--bd:#FF8A80;--bdb:#3E1714;--ac:#7FB0FF;--map:#0E2033;color-scheme:dark}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 "Atkinson Hyperlegible","Noto Sans Telugu","Noto Sans Devanagari",Verdana,system-ui,sans-serif}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.w{max-width:1120px;margin:0 auto;padding:0 20px}
+.top{background:var(--bo);color:#fff;position:sticky;top:0;z-index:5}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:10px 18px;padding:10px 0;flex-wrap:wrap}
+.logo{font-weight:700;font-size:1.3rem;display:flex;gap:10px;align-items:center;color:#fff;text-decoration:none}
+.logo i{width:30px;height:30px;border-radius:50%;background:var(--sg);position:relative}
+.logo i:after{content:"";position:absolute;left:10px;top:6px;width:8px;height:14px;border:solid var(--bo);border-width:0 4px 4px 0;transform:rotate(40deg)}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+nav a{color:#D5E2EE;text-decoration:none;padding:6px 14px;border-radius:99px}
+nav a[aria-current=page]{background:var(--sg);color:#10263A;font-weight:700}
+.lang{display:flex;gap:6px}
+.lang button{font:inherit;background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4);border-radius:8px;padding:2px 10px;cursor:pointer}
+.lang button[aria-pressed=true]{background:#fff;color:#10263A;border-color:#fff;font-weight:700}
+.ph{background:var(--bo);color:#fff;padding:30px 0 64px}
+.ph h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.05;margin:0 0 12px;max-width:18ch}
+.ph p{color:#CFDDEA;max-width:60ch;margin:0;font-size:1.1rem}
+.home h1{font-size:clamp(2.3rem,6vw,4.2rem);max-width:16ch}
+.pull{margin-top:-44px;padding-bottom:50px}
+.card{background:var(--sf);border-radius:18px;padding:16px;box-shadow:0 14px 40px rgba(4,14,24,.3);border:2px solid var(--ln)}
+h2{font-size:clamp(1.5rem,3.4vw,2.1rem);line-height:1.15;margin:0 0 8px}
+.lead{color:var(--mu);max-width:62ch;margin:0 0 22px}
+.btn{font:inherit;font-weight:700;border:2px solid var(--ink);background:transparent;color:var(--ink);padding:8px 16px;border-radius:10px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.btn.p{background:var(--ac);border-color:var(--ac);color:#fff}.btn.p:hover{filter:brightness(1.1);background:var(--ac)}
+.btn.y{background:var(--sg);border-color:var(--sg);color:#10263A}.btn.y:hover{background:var(--sg);color:#10263A;filter:brightness(1.05)}
+.mods{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.mod{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:var(--ink);padding:20px;border-radius:16px;background:var(--sf);border:2px solid var(--ln);box-shadow:0 14px 40px rgba(4,14,24,.2)}
+.mod:hover{border-color:var(--ac)}.mod b{font-size:1.3rem}.mod span{color:var(--mu);flex:1}.mod em{font-style:normal;font-weight:700;color:var(--ac)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:0 0 40px}
+.stat{background:var(--sf);border:2px solid var(--ln);border-radius:14px;padding:16px}.stat b{display:block;font-size:2.2rem;line-height:1.1}.stat span{color:var(--mu)}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));list-style:none;padding:0;margin:0 0 40px;counter-reset:n}
+.flow li{counter-increment:n;padding:4px 18px;border-left:6px solid var(--bo)}
+.flow li:before{content:"Step " counter(n);display:block;font-weight:700;color:var(--ac)}
+.flow b{display:block;font-size:1.1rem}.flow span{color:var(--mu)}
+.map{width:100%;height:auto;display:block;background:var(--map);border-radius:12px}
+.map text{font:700 13px "Atkinson Hyperlegible",Verdana,sans-serif;fill:var(--ink)}
+.room{fill:var(--sf);stroke:var(--ln);stroke-width:2}
+.path{fill:none;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;transition:stroke .4s,opacity .4s}
+.path.go{stroke:var(--ok);stroke-dasharray:14 12;animation:fl 1s linear infinite}.path.caution{stroke:var(--wn);stroke-dasharray:14 12;animation:fl 1s linear infinite}
+.path.off{stroke:var(--bd);stroke-dasharray:4 14;opacity:.55}.path.idle{stroke:var(--ln)}
+@keyframes fl{to{stroke-dashoffset:-26}}
+.node{stroke:var(--sf);stroke-width:3;transition:fill .3s}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin:10px 4px 0;color:var(--mu);font-size:.92rem}.legend span:before{content:"";display:inline-block;width:18px;height:6px;border-radius:3px;margin-right:6px;vertical-align:middle;background:var(--c)}
+.status,.warn{margin-top:12px;border-left:6px solid var(--ok);background:var(--okb);padding:10px 14px;border-radius:8px}
+.status.caution,.warn.check{border-color:var(--wn);background:var(--wnb)}.status.bad,.warn.scam{border-color:var(--bd);background:var(--bdb)}
+.meter{display:flex;gap:6px;margin:12px 0 4px}.meter i{flex:1;height:10px;border-radius:5px;background:var(--ln);transition:background .3s}.meter i.on{background:var(--ok)}
+.ctrl{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;align-items:center}
+.chips button{font:inherit;border:2px solid var(--ln);background:transparent;color:var(--ink);border-radius:99px;padding:3px 12px;cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--ac);border-color:var(--ac);color:#fff}
+.eta{margin-left:auto;color:var(--mu)}.eta b{color:var(--ink)}
+.split{display:grid;grid-template-columns:1fr 1.15fr;gap:18px;margin-top:14px}@media(max-width:800px){.split{grid-template-columns:1fr}}
+.paper{background:#fff;color:#222;border:1px solid #ddd;border-radius:6px;padding:18px;font:15px/1.5 Georgia,serif;box-shadow:0 4px 12px rgba(0,0,0,.08);min-height:230px}
+.paper h4{margin:0 0 8px;font-size:1rem;border-bottom:2px solid #222;padding-bottom:6px}.paper p{margin:8px 0}
+.out{border:2px solid var(--ln);border-radius:14px;padding:16px}
+.badge{font-weight:700;padding:2px 12px;border-radius:99px;font-size:.92rem}.badge.check{background:var(--wnb);color:var(--wn)}.badge.info{background:var(--okb);color:var(--ok)}.badge.scam{background:var(--bdb);color:var(--bd)}
+.warn.info{border-color:var(--ok);background:var(--okb)}
+.sum{font-size:1.1rem;font-weight:700;margin:10px 0}
+.facts{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}.facts div{background:var(--bg);border:2px solid var(--ln);border-radius:10px;padding:4px 12px}.facts small{display:block;color:var(--mu)}
+.out ol{margin:4px 0 0;padding-left:22px}
+.toast{color:var(--ok);font-weight:700}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
+.col{border:2px solid var(--ln);border-radius:14px;padding:16px}.col h3{margin:0 0 8px;font-size:1.1rem}
+.col label{display:flex;gap:10px;align-items:center;padding:4px 0;cursor:pointer}.col input{width:20px;height:20px;accent-color:var(--ac)}
+select{font:inherit;padding:8px 10px;border:2px solid var(--ln);border-radius:10px;background:var(--bg);color:var(--ink);min-width:200px}
+.sel{display:flex;gap:16px;flex-wrap:wrap}.sel label{display:block;font-weight:700;margin-bottom:4px}
+.bar2{height:10px;background:var(--ln);border-radius:5px;overflow:hidden;margin-top:8px}.bar2 b{display:block;height:100%;background:var(--ok);transition:width .3s}
+.road{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:30px}
+.road div{border-top:6px solid var(--sg);background:var(--sf);padding:14px 16px;border:2px solid var(--ln);border-top:6px solid var(--sg);border-radius:0 0 12px 12px}.road b{display:block}.road span{color:var(--mu)}
+.note{color:var(--mu);font-size:.9rem;margin-top:14px}
+footer{background:var(--bo);color:#C5D5E4;padding:26px 0}footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.rp{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--ln);padding:12px 0;align-items:center}.rp small{display:block;color:var(--mu)}.rp .bar2{width:160px}.rp .btn{padding:4px 12px;font-size:.95rem}
+textarea{font:inherit;width:100%;min-height:120px;padding:12px;border:2px solid var(--ln);border-radius:10px;background:var(--bg);color:var(--ink)}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 40px}@media(max-width:720px){.cmp{grid-template-columns:1fr}}.cmp div{border:2px solid var(--ln);border-radius:14px;padding:16px;background:var(--sf)}.cmp .a{border-color:var(--bd)}.cmp .b{border-color:var(--ok)}.cmp h3{margin:0 0 6px}.cmp ul{margin:0;padding-left:20px;color:var(--mu)}
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:0 0 40px}.trio div{border:2px solid var(--ln);border-radius:14px;padding:16px;background:var(--sf)}.trio b{display:block;margin-bottom:4px}.trio span{color:var(--mu)}
+details{border-bottom:2px solid var(--ln);padding:12px 0}summary{font-weight:700;cursor:pointer}details p{color:var(--mu);margin:8px 0 0;max-width:64ch}
+.res li{margin:4px 0}.alert{margin-top:16px;border:3px solid var(--bd);background:var(--bdb);border-radius:12px;padding:14px 16px}.alert b{font-size:1.2rem;display:block;margin-bottom:2px}.alert .toast{display:block;margin-top:8px}.res h3{margin:0 0 6px}
+@media(prefers-reduced-motion:reduce){.path.go,.path.caution{animation:none}*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="w"><div class="bar">
+ <a class="logo" href="#home"><i aria-hidden="true"></i>PATHPROOF</a>
+ <nav aria-label="Pages"><a href="#home">Home</a><a href="#navigate">Navigate</a><a href="#papers">Understand papers</a><a href="#plan">Plan a visit</a><a href="#scam">Scam check</a></nav>
+ <div class="lang" role="group" aria-label="Language"><button data-l="en" aria-pressed="true">English</button><button data-l="te" aria-pressed="false">తెలుగు</button><button data-l="hi" aria-pressed="false">हिन्दी</button></div>
+</div></div></header>
+
+<!-- HOME -->
+<div data-p="home" class="home">
+ <div class="ph"><div class="w"><h1>Know it works before you go.</h1><p>One platform that makes everyday places and everyday paperwork easier for elders, people with disabilities, parents and anyone who is stuck at the first obstacle.</p></div></div>
+ <div class="w pull">
+  <div class="mods">
+   <a class="mod" href="#navigate"><b>Navigate</b><span>Routes through hospitals, stations and offices using ramps and lifts that the community has verified are working today.</span><em>Open live demo</em></a>
+   <a class="mod" href="#papers"><b>Understand papers</b><span>Bills, notices, prescriptions and bank messages explained in Telugu, Hindi or English, with scam warnings.</span><em>Try a sample paper</em></a>
+   <a class="mod" href="#plan"><b>Plan a visit</b><span>Combine route status, documents to carry and reminders into one plan you can share with family.</span><em>Build a plan</em></a>
+   <a class="mod" href="#scam"><b>Scam check</b><span>Paste any suspicious SMS or WhatsApp message and see the warning signs it contains, with what to do next.</span><em>Check a message</em></a>
+  </div>
+  <div style="height:44px"></div>
+  <h2>Everyday life fails at small moments</h2>
+  <p class="lead">A lift out of order. A notice nobody can read. A message that might be a scam. Each one is small, but together they decide whether a visit to the hospital succeeds.</p>
+  <div class="stats">
+   <div class="stat"><b>2.68 crore</b><span>people with disabilities in India (Census 2011)</span></div>
+   <div class="stat"><b>1.3 billion</b><span>people worldwide live with a significant disability (WHO)</span></div>
+   <div class="stat"><b>22</b><span>scheduled languages in India. We start with Telugu, Hindi and English</span></div>
+  </div>
+  <h2>A report is only trusted when others agree</h2>
+  <p class="lead">PATHPROOF separates reliable updates from guesses, so nobody is sent to a broken lift.</p>
+  <ol class="flow">
+   <li><b>Report</b><span>Anyone flags a blocked ramp or lift, with an optional photo.</span></li>
+   <li><b>Corroborate</b><span>Nearby people confirm or dispute. Three confirmations mean verified.</span></li>
+   <li><b>Reroute</b><span>Blocked facilities are skipped and the next usable route is shown.</span></li>
+   <li><b>Expire</b><span>Old statuses fade until someone confirms them again.</span></li>
+  </ol>
+  <h2>Where we go next</h2>
+  <div class="road" style="margin-top:14px">
+   <div><b>Phase 1: Pilot</b><span>Map 3 hospitals and 1 railway station in one city with volunteers.</span></div>
+   <div><b>Phase 2: Community</b><span>Open reporting with photo proof and reputation for reliable contributors.</span></div>
+   <div><b>Phase 3: Partnerships</b><span>Work with facility managers and local bodies to track fixes.</span></div>
+  </div>
+  <h2>Why this is different</h2>
+  <div class="cmp" style="margin-top:14px">
+   <div class="a"><h3>Ordinary navigation</h3><ul><li>Optimises distance and time</li><li>Facility data is old or missing</li><li>No signal when a lift breaks</li><li>Paperwork is left to you</li></ul></div>
+   <div class="b"><h3>PATHPROOF</h3><ul><li>Optimises for a route you can actually use</li><li>Status confirmed by people on site</li><li>Reroutes the moment something fails</li><li>Explains papers and flags scams in your language</li></ul></div>
+  </div>
+  <h2>Built to be trusted by the whole family</h2>
+  <div class="trio" style="margin-top:14px">
+   <div><b>Speaks and listens</b><span>Explanations can be read aloud, so people who read slowly are not left out.</span></div>
+   <div><b>Private by design</b><span>Papers and reports are used only to answer you. Nothing is sold, and you can delete your data.</span></div>
+   <div><b>Honest about limits</b><span>PATHPROOF guides and flags what to verify. It does not replace a doctor, lawyer or the issuing office.</span></div>
+  </div>
+  <h2>Questions people ask</h2>
+  <div style="margin:10px 0 40px">
+   <details><summary>How do you know a report is true?</summary><p>One report stays unconfirmed. When three people agree it becomes verified, and old reports expire until someone confirms them again.</p></details>
+   <details><summary>Can the explanations be wrong?</summary><p>Yes. They are guidance, and each one tells you what to verify with the official source or a professional.</p></details>
+   <details><summary>Does it work offline?</summary><p>Not in this prototype. Saving plans and explanations for offline use is on the roadmap.</p></details>
+   <details><summary>Is it free?</summary><p>Individuals use it free. We plan partnerships with hospitals, stations and local bodies who want to keep their facilities information accurate.</p></details>
+  </div>
+  <p class="note">Statistics: Census of India 2011 and WHO.</p>
+ </div>
+</div>
+
+<!-- NAVIGATE -->
+<div data-p="navigate" hidden>
+ <div class="ph"><div class="w"><h1>Not the fastest route. The one that works.</h1><p>Follow Lakshmi, 68, who uses a walking frame and needs the OPD on floor 2. Press the button and watch her route change when a lift breaks.</p></div></div>
+ <div class="w pull"><div class="card">
+  <svg class="map" viewBox="0 0 640 340" role="img" aria-label="Hospital floor plan with two routes to the OPD">
+   <rect class="room" x="20" y="20" width="600" height="300" rx="14"/><rect class="room" x="470" y="120" width="130" height="100" rx="10"/>
+   <text x="490" y="160">OPD Block</text><text x="490" y="180">Floor 2</text>
+   <path id="pA" class="path go" d="M60 290 L330 290 L440 170 L470 170"/><path id="pB" class="path idle" d="M60 50 L330 50 L440 170 L470 170"/>
+   <circle class="node" cx="60" cy="290" r="11" fill="var(--ac)"/><text x="40" y="318">Main gate</text>
+   <circle class="node" cx="60" cy="50" r="11" fill="var(--ac)"/><text x="40" y="38">Side gate</text>
+   <circle id="lB" class="node" cx="330" cy="290" r="14" fill="var(--ok)"/><text x="304" y="268">Lift B</text>
+   <circle class="node" cx="330" cy="50" r="14" fill="var(--ok)"/><text x="304" y="82">Lift A</text>
+   <text x="110" y="278">Ramp</text><text x="110" y="70">Ramp</text><text x="215" y="318">140 m</text><text x="215" y="40">230 m</text>
+  </svg>
+  <div class="legend"><span style="--c:var(--ok)">Verified clear</span><span style="--c:var(--wn)">Caution</span><span style="--c:var(--bd)">Blocked</span></div>
+  <div class="meter" id="meter" aria-label="Confirmations"><i></i><i></i><i></i></div>
+  <div class="status" id="st" role="status" aria-live="polite"></div>
+  <div class="ctrl"><button class="btn p" id="next"></button><button class="btn" id="reset"></button><span class="eta" id="eta"></span></div>
+  <div class="ctrl chips" id="pers" role="group" aria-label="Who is travelling"><button data-p="elder" aria-pressed="true">Elderly</button><button data-p="wheel" aria-pressed="false">Wheelchair</button><button data-p="stroller" aria-pressed="false">Stroller</button><button data-p="injury" aria-pressed="false">Injury</button></div>
+  <h2 style="margin-top:26px">Community reports</h2>
+  <p class="lead" style="margin-bottom:10px">Confirm or dispute what others have reported. Three confirmations make a report verified.</p>
+  <div id="rl"></div>
+  <form id="rf" class="sel" style="margin-top:14px;align-items:flex-end"><div><label for="rfac">Facility</label><select id="rfac"><option>Lift A</option><option>Lift B</option><option>Main gate ramp</option><option>Side gate ramp</option><option>Accessible restroom</option></select></div><div><label for="rst">What did you find?</label><select id="rst"><option value="blocked">Blocked or not working</option><option value="working">Working</option></select></div><button class="btn p" type="submit">Report</button></form><div class="toast" id="rt" role="status"></div>
+ </div></div>
+</div>
+
+<!-- PAPERS -->
+<div data-p="papers" hidden>
+ <div class="ph"><div class="w"><h1>Every paper, explained in your language.</h1><p>Before you reach the hospital or the office, understand the notice, the prescription or the message. Pick a sample, change the language and press Listen.</p></div></div>
+ <div class="w pull"><div class="card">
+  <div class="ctrl chips" id="tabs" role="group" aria-label="Sample paper" style="margin-top:0"></div>
+  <div class="split">
+   <div class="paper" id="paper"></div>
+   <div class="out" aria-live="polite"><span class="badge" id="badge"></span><p class="sum" id="sum"></p><div class="facts" id="facts"></div><b id="sh"></b><ol id="steps"></ol><div class="warn" id="warn"></div>
+    <div class="ctrl"><button class="btn" id="listen"></button><button class="btn" id="rem"></button><span class="toast" id="toast" role="status"></span></div></div>
+  </div>
+ </div></div>
+</div>
+
+<!-- PLAN -->
+<div data-p="plan" hidden>
+ <div class="ph"><div class="w"><h1>Plan the visit before you leave home.</h1><p>Choose where you are going and who is travelling. PATHPROOF gives you route status, what to carry and where to ask for help. The planner is in English for now.</p></div></div>
+ <div class="w pull"><div class="card">
+  <div class="sel"><div><label for="pl">Place</label><select id="pl"><option value="hosp">Hospital</option><option value="stn">Railway station</option><option value="gov">Government office</option></select></div>
+  <div><label for="pn">Who is travelling</label><select id="pn"><option value="elder">Elderly person</option><option value="wheel">Wheelchair user</option><option value="stroller">Parent with stroller</option><option value="injury">Temporary injury</option></select></div></div>
+  <div class="cols">
+   <div class="col"><h3>Route status today</h3><div class="warn" id="pr"></div><p id="pt"></p></div>
+   <div class="col"><h3>What to carry</h3><div id="ck"></div><div class="bar2"><b id="pb" style="width:0"></b></div><small id="pc"></small></div>
+   <div class="col"><h3>Where to get help</h3><p id="ph2"></p><div class="ctrl"><button class="btn p" id="share">Copy plan</button><button class="btn" id="prem">Remind me tomorrow</button></div><span class="toast" id="pm" role="status"></span></div>
+  </div>
+ </div></div>
+</div>
+
+<!-- SCAM -->
+<div data-p="scam" hidden>
+ <div class="ph"><div class="w"><h1>Check a message before you tap it.</h1><p>Paste an SMS or WhatsApp message. PATHPROOF looks for common scam signs and tells you what to do. Nothing is sent anywhere, the check runs in your browser.</p></div></div>
+ <div class="w pull"><div class="card">
+  <label for="sm" style="font-weight:700">Message text</label>
+  <textarea id="sm" placeholder="Paste the message here"></textarea>
+  <div class="ctrl"><button class="btn p" id="sc">Check message</button><button class="btn" id="sx">Try an example</button></div>
+  <div class="res" id="sr" aria-live="polite"></div>
+  <h3 style="margin:22px 0 8px">Scams to watch for</h3>
+  <div class="trio" style="margin-bottom:10px">
+   <div><b>Bank blocked or KYC update</b><span>Banks do not block accounts by SMS or ask for KYC through links.</span></div>
+   <div><b>Electricity or gas disconnection</b><span>Verify on the official app or helpline printed on your bill.</span></div>
+   <div><b>Digital arrest and customs calls</b><span>No agency arrests people over a phone or video call. Hang up.</span></div>
+   <div><b>UPI request or QR to receive money</b><span>You never need a PIN to receive money. Decline the request.</span></div>
+   <div><b>Easy online jobs and tasks</b><span>Real jobs do not ask you to pay first or to like and subscribe for pay.</span></div>
+  </div>
+  <p class="note">This is a rule-based checker for common signs. It cannot prove a message is safe. If unsure, contact the organisation using the number on its official website or your card. Report fraud at 1930 or cybercrime.gov.in.</p>
+ </div></div>
+</div>
+
+<footer><div class="w"><span>PATHPROOF · Reimagine everyday life</span><span>© 2026 PATHPROOF</span></div></footer>
+
+<script>
+const $=i=>document.getElementById(i),Q=s=>document.querySelectorAll(s);
+let lang="en",stage=0,per="elder",doc="elec";
+const NV={en:{n:"Next event",r:"Start over",s:["All clear. The fastest route is also accessible.","Lift B reported stuck. 1 of 3 confirmations. Proceed with caution.","Lift B verified blocked by 3 people. Rerouted through Lift A, 90 m longer.","Lift B repaired and re-verified. Fastest route restored."]},
+te:{n:"తదుపరి సంఘటన",r:"మళ్లీ మొదలు",s:["అన్నీ సరిగ్గా ఉన్నాయి. వేగమైన మార్గం అందుబాటులోనే ఉంది.","లిఫ్ట్ B ఆగిపోయిందని నివేదిక. 3లో 1 నిర్ధారణ. జాగ్రత్తగా వెళ్లండి.","లిఫ్ట్ B మూసివేయబడిందని 3 మంది ధృవీకరించారు. లిఫ్ట్ A ద్వారా మళ్లించాం, 90 మీ ఎక్కువ.","లిఫ్ట్ B బాగైంది, మళ్లీ ధృవీకరించబడింది. వేగమైన మార్గం తిరిగి వచ్చింది."]},
+hi:{n:"अगली घटना",r:"फिर शुरू करें",s:["सब ठीक है। सबसे तेज़ रास्ता सुलभ भी है।","लिफ्ट B अटकी बताई गई। 3 में से 1 पुष्टि। सावधानी रखें।","3 लोगों ने लिफ्ट B बंद होने की पुष्टि की। लिफ्ट A से नया रास्ता, 90 मी लंबा।","लिफ्ट B ठीक हुई और फिर सत्यापित। सबसे तेज़ रास्ता बहाल।"]}};
+const UI={en:{amount:"Amount",due:"Due",steps:"What to do",listen:"Listen",rem:"Set a reminder",set:"Reminder set for 2 days before.",vc:"en-IN"},te:{amount:"మొత్తం",due:"గడువు",steps:"ఏం చేయాలి",listen:"వినండి",rem:"గుర్తు చేయండి",set:"రిమైండర్ సెట్ అయింది.",vc:"te-IN"},hi:{amount:"राशि",due:"समय सीमा",steps:"क्या करें",listen:"सुनें",rem:"याद दिलाएं",set:"रिमाइंडर सेट हो गया।",vc:"hi-IN"}};
+const D={
+elec:{tab:"Electricity notice",risk:"check",r:1,paper:"<h4>POWER DISTRIBUTION COMPANY</h4><p><b>Notice of disconnection</b></p><p>Consumer No. 4471 0293<br>Bill amount: ₹2,450<br>Unpaid since: 05 Oct 2026</p><p>Pay by <b>20 Nov 2026</b> to avoid disconnection. Pay only at our office, our app or the official portal.</p>",
+L:{en:{s:"Your electricity bill of ₹2,450 is overdue. Power can be cut after 20 Nov if it stays unpaid.",f:[["amount","₹2,450"],["due","20 Nov"]],st:["Open the official app or portal and check the bill amount.","Pay before 20 Nov using the official channel only.","Keep the payment receipt for 6 months."],w:["Check the source","Only pay on the official app, portal or office. Never send money to a personal number."]},
+te:{s:"మీ ₹2,450 కరెంట్ బిల్లు బకాయి ఉంది. 20 నవంబర్ లోపు చెల్లించకపోతే విద్యుత్ కనెక్షన్ కట్ కావచ్చు.",f:[["amount","₹2,450"],["due","20 Nov"]],st:["అధికారిక యాప్ లేదా పోర్టల్‌లో బిల్లు మొత్తం చూడండి.","అధికారిక మార్గంలో మాత్రమే 20 నవంబర్ లోపు చెల్లించండి.","చెల్లింపు రసీదును 6 నెలలు భద్రపరచండి."],w:["మూలాన్ని సరిచూడండి","అధికారిక యాప్, పోర్టల్ లేదా కార్యాలయంలో మాత్రమే చెల్లించండి. వ్యక్తిగత నంబర్‌కు డబ్బు పంపవద్దు."]},
+hi:{s:"आपका ₹2,450 का बिजली बिल बकाया है। 20 नवंबर तक न भरने पर कनेक्शन कट सकता है।",f:[["amount","₹2,450"],["due","20 Nov"]],st:["आधिकारिक ऐप या पोर्टल पर बिल की राशि देखें।","सिर्फ आधिकारिक माध्यम से 20 नवंबर से पहले भुगतान करें।","भुगतान की रसीद 6 महीने संभालकर रखें।"],w:["स्रोत जांचें","सिर्फ आधिकारिक ऐप, पोर्टल या दफ्तर में भुगतान करें। किसी निजी नंबर पर पैसे न भेजें।"]}}},
+rx:{tab:"Prescription",risk:"info",r:1,paper:"<h4>Dr. A. Rao, General Physician</h4><p>Tab Metformin 500 mg &nbsp;1-0-1 (after food) × 30 days</p><p>Tab Amlodipine 5 mg &nbsp;0-0-1 × 30 days</p><p>Review after 4 weeks. Diet: low sugar, low salt.</p>",
+L:{en:{s:"Two daily medicines: one for sugar, one for blood pressure. Review with the doctor after 4 weeks.",f:[["due","4 weeks"]],st:["Metformin 500 mg: one tablet in the morning and one at night, after food.","Amlodipine 5 mg: one tablet at night.","Book your review visit for 4 weeks from now."],w:["Good to know","Do not stop or change doses on your own. Ask your doctor or pharmacist if unsure."]},
+te:{s:"రోజూ రెండు మందులు: ఒకటి షుగర్‌కు, ఒకటి బీపీకి. 4 వారాల తర్వాత డాక్టర్‌ను కలవండి.",f:[["due","4 వారాలు"]],st:["మెట్‌ఫార్మిన్ 500 mg: ఉదయం ఒకటి, రాత్రి ఒకటి, భోజనం తర్వాత.","అమ్లోడిపిన్ 5 mg: రాత్రి ఒకటి.","4 వారాల తర్వాత చెకప్ కోసం అపాయింట్‌మెంట్ తీసుకోండి."],w:["తెలుసుకోవాల్సింది","డాక్టర్ చెప్పకుండా మందులు ఆపకండి లేదా డోసు మార్చకండి. సందేహం ఉంటే డాక్టర్ లేదా ఫార్మసిస్ట్‌ను అడగండి."]},
+hi:{s:"रोज़ दो दवाइयां: एक शुगर की, एक बीपी की। 4 हफ्ते बाद डॉक्टर को दिखाएं।",f:[["due","4 हफ्ते"]],st:["मेटफॉर्मिन 500 mg: सुबह एक और रात को एक, खाने के बाद।","एम्लोडिपिन 5 mg: रात को एक।","4 हफ्ते बाद जांच के लिए समय लें।"],w:["जानने लायक","डॉक्टर से पूछे बिना दवा बंद न करें या मात्रा न बदलें। संदेह हो तो डॉक्टर या फार्मासिस्ट से पूछें।"]}}},
+sms:{tab:"Bank SMS",risk:"scam",r:0,paper:"<h4>SMS from VM-BNKALRT</h4><p>Dear customer, your account will be blocked today. Update KYC now: http://bnk-kyc-update.in/x7 or call 98XXXXXX10.</p>",
+L:{en:{s:"This looks like a scam. Banks do not block accounts by SMS or ask you to update KYC through a link.",f:[["due","Today (fake urgency)"]],st:["Do not tap the link or call the number.","Never share your OTP, PIN or card details.","Report it on 1930 or cybercrime.gov.in, then delete the message."],w:["Likely scam","Fake urgency and an unofficial link are classic signs of phishing."]},
+te:{s:"ఇది మోసం లాగా ఉంది. బ్యాంకులు SMS ద్వారా ఖాతా బ్లాక్ చేయవు, లింక్ ద్వారా KYC అప్‌డేట్ అడగవు.",f:[["due","ఈ రోజే"]],st:["లింక్‌ను నొక్కవద్దు, నంబర్‌కు కాల్ చేయవద్దు.","OTP, PIN, కార్డ్ వివరాలు ఎవరికీ చెప్పవద్దు.","1930 లేదా cybercrime.gov.in లో ఫిర్యాదు చేసి, సందేశాన్ని తొలగించండి."],w:["మోసం అయ్యే అవకాశం","తొందర పెట్టడం, అధికారికం కాని లింక్ ఫిషింగ్ సంకేతాలు."]},
+hi:{s:"यह धोखाधड़ी लगती है। बैंक SMS से खाता बंद नहीं करते और लिंक से KYC अपडेट करने को नहीं कहते।",f:[["due","आज"]],st:["लिंक पर क्लिक न करें और नंबर पर कॉल न करें।","OTP, PIN या कार्ड की जानकारी किसी को न बताएं।","1930 या cybercrime.gov.in पर शिकायत करें, फिर संदेश डिलीट करें।"],w:["संभावित धोखाधड़ी","झूठी जल्दबाज़ी और अनधिकृत लिंक फिशिंग के आम संकेत हैं।"]}}}};
+const PL={
+hosp:{r:["scam","Lift B is blocked, verified by 3 people. Use Side gate and Lift A, 90 m longer.","Verified today"],c:["Photo ID","Appointment slip","Doctor’s prescription or earlier reports","Medicines and water"],h:"Ask security at the main gate for a wheelchair. The OPD helpdesk is on the ground floor."},
+stn:{r:["check","Overbridge lift L2 has only 1 confirmation. Plan for the ramp crossing with staff help, 140 m longer.","Unconfirmed"],c:["Ticket and photo ID","Disability or senior citizen concession proof","Phone with power bank","Water and a light snack"],h:"Ask the station master’s office or the help desk for assistance at the platform ramp."},
+gov:{r:["scam","Front ramp is blocked. Use the rear entrance ramp, 90 m longer, to the ground floor counter.","Verified today"],c:["Photo ID","Application form and copies","Address proof","A pen and a folder"],h:"Ask the reception desk. Counters for certificates are on the ground floor."}};
+const TIP={elder:"Choose seats near the entrance and avoid peak hours.",wheel:"Step-free route only. Confirm lift status again on arrival.",stroller:"Prefer lifts over escalators and carry a light cover for waiting.",injury:"Lift-preferred route with the shortest walking distance."};
+const speed={elder:40,wheel:50,stroller:55,injury:35};
+
+function route(){
+ const h=(location.hash||"#home").slice(1),ok=["home","navigate","papers","plan","scam"].includes(h)?h:"home";
+ Q("[data-p]").forEach(s=>s.hidden=s.dataset.p!==ok);
+ Q("nav a").forEach(a=>a.getAttribute("href")==="#"+ok?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
+ window.scrollTo(0,0);if(ok==="plan")plan();
+}
+function setP(el,c){el.setAttribute("class","path "+c)}
+function nav(){
+ const t=NV[lang];$("next").textContent=t.n;$("reset").textContent=t.r;
+ const c=[["go","idle","--ok",""],["caution","idle","--wn","caution"],["off","go","--bd","bad"],["go","idle","--ok",""]][stage];
+ setP($("pA"),c[0]);setP($("pB"),c[1]);$("lB").setAttribute("fill","var("+c[2]+")");
+ $("st").className="status "+c[3];$("st").textContent=t.s[stage];
+ [...$("meter").children].forEach((e,i)=>e.className=i<[0,1,3,0][stage]?"on":"");
+ const m=stage===2?230:140;$("eta").innerHTML="~<b>"+Math.round(m/speed[per]+3)+" min</b> · "+m+" m";
+ $("next").style.display=stage===3?"none":"";
+}
+function papers(){try{speechSynthesis.cancel()}catch(x){}
+ const d=D[doc],L=d.L[lang],U=UI[lang];
+ Q("#tabs button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.d===doc));
+ $("paper").innerHTML=d.paper;$("badge").className="badge "+d.risk;$("badge").textContent=L.w[0];$("sum").textContent=L.s;
+ $("facts").innerHTML=L.f.map(x=>`<div><small>${U[x[0]]}</small><b>${x[1]}</b></div>`).join("");
+ $("sh").textContent=U.steps;$("steps").innerHTML=L.st.map(x=>`<li>${x}</li>`).join("");
+ $("warn").className="warn "+d.risk;$("warn").textContent=L.w[1];
+ $("listen").textContent="🔊 "+U.listen;$("rem").textContent=U.rem;$("rem").style.display=d.r?"":"none";$("toast").textContent="";
+}
+function plan(){
+ const p=PL[$("pl").value],vb=R.filter(r=>r.s==="blocked"&&r.c>=3),ub=R.filter(r=>r.s==="blocked"&&r.c<3);let c,t;if(vb.length){c="scam";t="Verified blocked by the community: "+vb.map(r=>r.f).join(", ")+". Ask staff for the alternative route."}else if(ub.length){c="check";t="Reported but not yet confirmed: "+ub.map(r=>r.f).join(", ")+". Plan for a backup route."}else{c="info";t=R.length?"No blocked facilities are reported right now.":"No community reports yet. Call the helpdesk to confirm lifts and ramps before you travel."}
+ $("pr").className="warn "+c;$("pr").textContent=t;$("pt").textContent=TIP[$("pn").value];
+ $("ck").innerHTML=p.c.map((x,i)=>`<label><input type="checkbox" data-k="${i}"> ${x}</label>`).join("");
+ $("ph2").textContent=p.h;prog();$("pm").textContent="";
+}
+function prog(){const a=[...Q("#ck input")],n=a.filter(x=>x.checked).length;$("pb").style.width=(n/a.length*100)+"%";$("pc").textContent=n+" of "+a.length+" ready"}
+function all(){nav();papers()}
+Q(".lang button").forEach(b=>b.onclick=()=>{lang=b.dataset.l;Q(".lang button").forEach(x=>x.setAttribute("aria-pressed",x===b));all()});
+$("next").onclick=()=>{stage=Math.min(3,stage+1);nav()};$("reset").onclick=()=>{stage=0;nav()};
+Q("#pers button").forEach(b=>b.onclick=()=>{per=b.dataset.p;Q("#pers button").forEach(x=>x.setAttribute("aria-pressed",x===b));nav()});
+$("tabs").innerHTML=Object.keys(D).map(k=>`<button data-d="${k}" aria-pressed="false">${D[k].tab}</button>`).join("");
+$("tabs").onclick=e=>{const b=e.target.closest("button");if(b){doc=b.dataset.d;try{speechSynthesis.cancel()}catch(x){}papers()}};
+$("rem").onclick=()=>{$("toast").textContent=UI[lang].set};
+const SL={en:"Step",te:"దశ",hi:"चरण"},LN={en:"English",te:"Telugu",hi:"Hindi"};
+function pickVoice(vs,l){const c=vs.filter(v=>v.lang.replace("_","-").toLowerCase().startsWith(l));const male=/\b(male|hemant|ravi|prabhat|mohan|rishi|madhur|david|mark|guy|ryan|george|daniel|alex|fred)\b/i,fem=/(female|heera|neerja|kalpana|swara|shruti|veena|lekha|geeta|zira|aria|jenny|samantha|karen|tessa|priya|google)/i;let a=c.filter(v=>!male.test(v.name)&&fem.test(v.name));if(!a.length)a=c.filter(v=>!male.test(v.name));if(l==="en"){const i=a.filter(v=>/en[-_]in/i.test(v.lang));if(i.length)a=i}return a[0]||null}
+$("listen").onclick=async()=>{try{const ss=speechSynthesis;if(ss.speaking){ss.cancel();$("toast").textContent="";return}
+const L=D[doc].L[lang],U=UI[lang];
+const parts=[L.w[0]+".",L.s,...L.f.map(x=>U[x[0]]+": "+x[1]+"."),U.steps+".",...L.st.map((x,i)=>SL[lang]+" "+(i+1)+". "+x),L.w[1]];
+let vs=ss.getVoices();if(!vs.length)await new Promise(r=>{ss.onvoiceschanged=r;setTimeout(r,800)});vs=ss.getVoices();
+const v=pickVoice(vs,lang);
+if(!v&&lang!=="en"){$("toast").textContent="This device has no female "+LN[lang]+" voice. Install one in Settings > Language > Text-to-speech, or use Chrome on Android or Edge on Windows.";return}
+parts.forEach(t=>{const u=new SpeechSynthesisUtterance(t);if(v){u.voice=v;u.lang=v.lang}else u.lang="en-IN";u.rate=.9;u.pitch=v?1:1.3;ss.speak(u)});
+$("toast").textContent="Reading everything aloud in "+(v?v.name:"the default voice")+". Press again to stop."}catch(e){$("toast").textContent="Voice is not available in this browser."}};
+$("pl").onchange=plan;$("pn").onchange=plan;$("ck").onchange=prog;
+$("prem").onclick=()=>{$("pm").textContent="Reminder set for tomorrow morning."};
+$("share").onclick=async()=>{const p=PL[$("pl").value],t="PATHPROOF visit plan: "+$("pl").selectedOptions[0].text+"\nRoute: "+$("pr").textContent+"\nCarry: "+p.c.join(", ")+"\nHelp: "+p.h;try{await navigator.clipboard.writeText(t);$("pm").textContent="Plan copied. Paste it into WhatsApp or a message."}catch(e){$("pm").textContent="Copy is not available here. Select the text on this page instead."}};
+const R=[];
+function reps(){$("rl").innerHTML=!R.length?"<p class=\"lead\">No reports yet. Be the first to report a ramp or lift that is blocked or working.</p>":R.map((r,i)=>{const v=r.c>=3;return `<div class="rp"><div><b>${r.f}</b> <span class="badge ${r.s==="blocked"?"scam":"info"}">${r.s==="blocked"?"Blocked":"Working"}</span> <span class="badge ${v?"info":"check"}">${v?"Verified":"Unconfirmed"}</span><div class="bar2"><b style="width:${Math.min(100,r.c/3*100)}%"></b></div><small>${r.c} agree${r.d?" · "+r.d+" disagree":""} · ${r.t}</small></div><div><button class="btn" data-a="c" data-i="${i}">Confirm</button> <button class="btn" data-a="d" data-i="${i}">Not true</button></div></div>`}).join("")}
+$("rl").onclick=e=>{const b=e.target.closest("button");if(!b)return;const r=R[b.dataset.i];if(b.dataset.a==="c")r.c++;else{r.d++;if(r.d>r.c){R.splice(b.dataset.i,1);$("rt").textContent="Report removed: more people disagreed than agreed."}}reps()};
+$("rf").onsubmit=e=>{e.preventDefault();R.unshift({f:$("rfac").value,s:$("rst").value,c:1,d:0,t:"just now"});$("rt").textContent="Thanks. Your report is unconfirmed until two more people agree.";reps()};
+const SR=[[/https?:\/\/|www\.|\b[a-z0-9-]+\.(xyz|top|link|co|in|com)\b/i,2,"Contains a link. Real banks rarely ask you to act through links in messages."],[/(today|immediately|urgent|within \d+ ?(hours|hrs|minutes)|last chance|expire|blocked|suspend)/i,2,"Creates fake urgency or threatens you."],[/(otp|pin|cvv|password|aadhaar|card number)/i,3,"Asks for secret details such as OTP, PIN or password. Nobody genuine will."],[/(kyc|lottery|prize|you have won|reward|refund|cashback)/i,2,"Mentions KYC, prizes or refunds, which are common scam hooks."],[/(call|contact)\s*(us\s*)?(on|at)?\s*\+?\d[\d ]{7,}/i,1,"Asks you to call an unknown number."],[/(\.apk|anydesk|teamviewer|quicksupport|screen ?share|install (this )?app)/i,3,"Asks you to install an app or share your screen, which can give fraudsters control of your phone."],[/(digital arrest|cbi|customs|narcotics|arrest|parcel|courier)/i,2,"Claims to be from police, customs or a courier and threatens you. Real agencies do not arrest people over SMS or video calls."],[/(collect request|approve (the )?request|scan (this )?qr|receive money)/i,3,"Asks you to approve a UPI request or scan a QR to receive money. Receiving money never needs your PIN."],[/(work from home|part[- ]time job|per day|earn \d|like and subscribe)/i,2,"Looks like a job or task scam promising easy money."]];
+const ALERT=`<div class="alert" role="alert"><b>⚠ Cyber alert</b><span>Do not reply, tap links or share codes. Report it now.</span><div class="ctrl"><a class="btn y" href="tel:1930">Call 1930</a><a class="btn" href="https://cybercrime.gov.in" target="_blank" rel="noopener">Report online</a><button class="btn" id="cr" type="button">Copy report text</button><button class="btn" id="cw" type="button">Warn my family</button></div><span class="toast" id="sa" role="status"></span></div>`;
+$("sx").onclick=()=>{$("sm").value="Dear customer, your account will be blocked today. Update KYC now: http://bnk-kyc-update.in/x7 and share OTP. Call 98XXXXXX10";chk()};
+function chk(){const t=$("sm").value.trim();if(!t){$("sr").innerHTML="<p>Paste a message first.</p>";return}const h=SR.filter(r=>r[0].test(t)),s=h.reduce((a,r)=>a+r[1],0),k=s>=5?["scam","Very likely a scam"]:s>=3?["check","Suspicious"]:["info","No common scam signs found"];$("sr").innerHTML=`${s>=3?ALERT:""}<div class="warn ${k[0]}" style="margin-top:16px"><h3>${k[1]}</h3>${h.length?"<ul>"+h.map(r=>"<li>"+r[2]+"</li>").join("")+"</ul>":"<p>This does not mean it is safe. Verify with the official source.</p>"}</div><h3 style="margin-top:16px">What to do</h3><ol><li>Do not tap links or call numbers in the message.</li><li>Never share OTP, PIN or card details.</li><li>Report at 1930 or cybercrime.gov.in, then delete it.</li></ol>`}
+$("sc").onclick=chk;
+$("sr").onclick=async e=>{const b=e.target.closest("button");if(!b||!b.id)return;const m=$("sm").value.trim(),t=b.id==="cr"?"Suspected cyber fraud message received. Message: "+m+"\nI am reporting this on 1930 / cybercrime.gov.in.":"Scam alert: I got this message: \""+m+"\". It looks like a scam. Do not tap links or share OTP. Report at 1930.";try{await navigator.clipboard.writeText(t);$("sa").textContent=b.id==="cr"?"Report text copied. Paste it when you report.":"Warning copied. Paste it into your family group."}catch(x){$("sa").textContent="Copy is not available here."}};
+reps();addEventListener("hashchange",route);route();all();plan();
+</script>
+</body>
+</html>
